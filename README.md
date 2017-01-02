@@ -38,4 +38,5 @@ Available microflow activities to use in your microflows
 - owasp-java-html-sanitizer.jar
 - org.apache.commons.io-2.3.0.jar
 - org.apache.commons.lang3.jar
-- org.apache.httpcomponents.httpclient_4.4.1.jar
+- commons-codec-1.10.jar
+- com.google.guava-14.0.1.jar

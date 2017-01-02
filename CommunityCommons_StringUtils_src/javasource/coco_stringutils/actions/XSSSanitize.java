@@ -16,11 +16,12 @@ import coco_stringutils.StringUtils;
 /**
  * Removes all potiential dangerous HTML from a string so that it can be safely displayed in a browser. 
  * 
- * This function should be applied to all HTML which is displayed in the browser, and can be entered by (untrusted) users.
+ * This function should be applied to all HTML which is displayed in the browser and is be submitted by (untrusted) users.
  * 
  * - HTML: The html to sanitize
  * - policy: The policy that defines the allowed HTML tags a user is allowd to use:
  * 
+ * Sanitize policies as described by OWASP.
  * 'eBay':
  * * eBay (http://www.ebay.com/) is the most popular online auction site in the
  *  * universe, as far as I can tell. It is a public site so anyone is allowed to
@@ -33,9 +34,8 @@ import coco_stringutils.StringUtils;
  *  * Slashdot (http://www.slashdot.org/) is a techie news site that allows users
  *  * to respond anonymously to news posts with very limited HTML markup. Now
  *  * Slashdot is not only one of the coolest sites around, it's also one that's
- *  * been subject to many different successful attacks. Even more unfortunate is
- *  * the fact that most of the attacks led users to the infamous goatse.cx picture
- *  * (please don't go look it up). The rules for Slashdot are fairly strict: users
+ *  * been subject to many different successful attacks. 
+ *  * The rules for Slashdot are fairly strict: users
  *  * can only submit the following HTML tags and no CSS: {<b>}, {<u>},
  *  * {<i>}, {<a>}, {<blockquote>}.
  */

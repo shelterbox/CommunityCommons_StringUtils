@@ -33,7 +33,7 @@ import java.util.regex.Pattern;
 import org.owasp.html.HtmlPolicyBuilder;
 import org.owasp.html.PolicyFactory;
 
-import com.google.common.base.Predicate;
+
 
 public class EbayPolicy {
 	// Some common regular expression definitions.
@@ -76,11 +76,11 @@ public class EbayPolicy {
 	  private static final Pattern VALIGN = Pattern.compile(
 	      "(?i)baseline|bottom|middle|top");
 
-	  private static final Predicate<String> COLOR_NAME_OR_COLOR_CODE
-	      = matchesEither(COLOR_NAME, COLOR_CODE);
-
-	  private static final Predicate<String> ONSITE_OR_OFFSITE_URL
-	      = matchesEither(ONSITE_URL, OFFSITE_URL);
+//	  private static final Predicate<String> COLOR_NAME_OR_COLOR_CODE
+//	      = matchesEither(COLOR_NAME, COLOR_CODE);
+//
+//	  private static final Predicate<String> ONSITE_OR_OFFSITE_URL
+//	      = matchesEither(ONSITE_URL, OFFSITE_URL);
 
 	  private static final Pattern HISTORY_BACK = Pattern.compile(
 	      "(?:javascript:)?\\Qhistory.go(-1)\\E");
@@ -88,18 +88,18 @@ public class EbayPolicy {
 	  private static final Pattern ONE_CHAR = Pattern.compile(
 	      ".?", Pattern.DOTALL);
 
-	  private static Predicate<String> matchesEither(
-		      final Pattern a, final Pattern b) {
-		    return new Predicate<String>() {
-		      public boolean apply(String s) {
-		        return a.matcher(s).matches()|| b.matcher(s).matches();
-		      }
-		    };
-	  }
+//	  private static Predicate<String> matchesEither(
+//		      final Pattern a, final Pattern b) {
+//		    return new Predicate<String>() {
+//		      public boolean apply(String s) {
+//		        return a.matcher(s).matches()|| b.matcher(s).matches();
+//		      }
+//		    };
+//	  }
 	  
 	  /**
 	   * A policy that can be used to produce policies that sanitize to HTML sinks
-	   * via {@link PolicyFactory#apply}.
+	   * 
 	   */
 	  public static final PolicyFactory POLICY_DEFINITION = new HtmlPolicyBuilder()
 	          .allowAttributes("id").matching(HTML_ID).globally()
@@ -110,13 +110,13 @@ public class EbayPolicy {
 	          .allowStyling()
 	          .allowAttributes("align").matching(ALIGN).onElements("p")
 	          .allowAttributes("for").matching(HTML_ID).onElements("label")
-	          .allowAttributes("color").matching(COLOR_NAME_OR_COLOR_CODE)
+	          .allowAttributes("color").matching(COLOR_CODE)
 	              .onElements("font")
 	          .allowAttributes("face")
 	              .matching(Pattern.compile("[\\w;, \\-]+"))
 	              .onElements("font")
 	          .allowAttributes("size").matching(NUMBER).onElements("font")
-	          .allowAttributes("href").matching(ONSITE_OR_OFFSITE_URL)
+	          .allowAttributes("href").matching(ONSITE_URL)
 	              .onElements("a")
 	          .allowStandardUrlProtocols()
 	          .allowAttributes("nohref").onElements("a")
@@ -125,7 +125,7 @@ public class EbayPolicy {
 	              "onfocus", "onblur", "onclick", "onmousedown", "onmouseup")
 	              .matching(HISTORY_BACK).onElements("a")
 	          .requireRelNofollowOnLinks()
-	          .allowAttributes("src").matching(ONSITE_OR_OFFSITE_URL)
+	          .allowAttributes("src").matching(ONSITE_URL)
 	              .onElements("img")
 	          .allowAttributes("name").matching(NAME)
 	              .onElements("img")
@@ -135,7 +135,7 @@ public class EbayPolicy {
 	              .onElements("img")
 	          .allowAttributes("border", "cellpadding", "cellspacing")
 	              .matching(NUMBER).onElements("table")
-	          .allowAttributes("bgcolor").matching(COLOR_NAME_OR_COLOR_CODE)
+	          .allowAttributes("bgcolor").matching(COLOR_CODE)
 	              .onElements("table")
 	          .allowAttributes("background").matching(ONSITE_URL)
 	              .onElements("table")
@@ -145,7 +145,7 @@ public class EbayPolicy {
 	              .onElements("table")
 	          .allowAttributes("background").matching(ONSITE_URL)
 	              .onElements("td", "th", "tr")
-	          .allowAttributes("bgcolor").matching(COLOR_NAME_OR_COLOR_CODE)
+	          .allowAttributes("bgcolor").matching(COLOR_CODE)
 	              .onElements("td", "th")
 	          .allowAttributes("abbr").matching(PARAGRAPH)
 	              .onElements("td", "th")
