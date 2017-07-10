@@ -11,7 +11,8 @@ package stringutils.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import coco_stringutils.StringUtils;
+
+import stringutils.StringUtils;
 
 /**
  * Secure one-way hash functions that takes arbitrary-sized data and output a fixed-length hash value using the SHA-256 hash algorithm. 

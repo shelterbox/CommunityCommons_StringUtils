@@ -11,7 +11,8 @@ package stringutils.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import coco_stringutils.StringUtils;
+
+import stringutils.StringUtils;
 
 /**
  * Generates and asymmetric hash using the HMAC_SHA256 hash algorithm

@@ -12,7 +12,7 @@ package objecthandling.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-import coco_objecthandling.ORM;
+import objecthandling.ORM;
 
 /**
  * Copies all common primitive attributes from source to target, which are not necessarily of the same type. This is useful to, for example, translate persistent object into non-persistant (view) objects.

@@ -12,7 +12,7 @@ package objecthandling.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-import coco_objecthandling.ORM;
+import objecthandling.ORM;
 
 /**
  * Checks whether a member has changed since the last commit. Useful in combination with getOriginalValueAsString.

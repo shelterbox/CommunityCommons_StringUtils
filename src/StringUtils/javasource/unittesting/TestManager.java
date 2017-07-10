@@ -15,7 +15,6 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-import java.util.zip.ZipInputStream;
 
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.junit.Test;
@@ -25,17 +24,16 @@ import org.junit.runners.JUnit4;
 import org.junit.runners.model.FrameworkMethod;
 import org.junit.runners.model.InitializationError;
 
-import unittesting.proxies.TestSuite;
-import unittesting.proxies.UnitTest;
-import unittesting.proxies.UnitTestResult;
-
 import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IDataType;
 
-import coco_objecthandling.XPath;
+import objecthandling.XPath;
+import unittesting.proxies.TestSuite;
+import unittesting.proxies.UnitTest;
+import unittesting.proxies.UnitTestResult;
 
 
 /**

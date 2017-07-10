@@ -11,7 +11,8 @@ package stringutils.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import coco_stringutils.StringUtils;
+
+import stringutils.StringUtils;
 
 /**
  * Converts a base64 encoded string to the plain, original string

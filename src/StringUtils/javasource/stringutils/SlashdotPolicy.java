@@ -1,4 +1,4 @@
-package coco_stringutils;
+package stringutils;
 
 //Copyright (c) 2011, Mike Samuel
 //All rights reserved.

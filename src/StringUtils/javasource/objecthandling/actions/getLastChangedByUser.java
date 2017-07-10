@@ -12,7 +12,7 @@ package objecthandling.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-import coco_objecthandling.ORM;
+import objecthandling.ORM;
 
 /**
  * Returns the user that last changed this object as System.User 

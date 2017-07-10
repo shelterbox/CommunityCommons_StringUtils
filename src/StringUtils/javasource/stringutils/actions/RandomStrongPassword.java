@@ -11,7 +11,8 @@ package stringutils.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import coco_stringutils.StringUtils;
+
+import stringutils.StringUtils;
 
 /**
  * Returns a random strong password containing a specified number of digits, uppercase and special characters.

@@ -9,10 +9,10 @@
 
 package stringutils.actions;
 
-import com.mendix.integration.util.StringUtil;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-import coco_stringutils.StringUtils;
+
+import stringutils.StringUtils;
 
 /**
  * Performs a regular expression. Identical to the microflow expression function 'replaceAll'. Useful to be used from java, or in older Mendix versions. 

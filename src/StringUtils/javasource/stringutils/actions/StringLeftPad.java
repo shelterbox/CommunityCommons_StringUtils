@@ -12,6 +12,8 @@ package stringutils.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
+import stringutils.StringUtils;
+
 /**
  * Pads a string on the left to a certain length. 
  * value : the original value
@@ -40,7 +42,7 @@ public class StringLeftPad extends CustomJavaAction<String>
 	public String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		return coco_stringutils.StringUtils.leftPad(value, amount, fillCharacter);
+		return StringUtils.leftPad(value, amount, fillCharacter);
 		// END USER CODE
 	}
 

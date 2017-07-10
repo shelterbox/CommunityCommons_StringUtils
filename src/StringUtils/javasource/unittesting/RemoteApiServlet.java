@@ -10,10 +10,6 @@ import org.apache.http.auth.InvalidCredentialsException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import unittesting.proxies.TestSuite;
-import unittesting.proxies.UnitTest;
-import unittesting.proxies.UnitTestResult;
-
 import com.mendix.core.Core;
 import com.mendix.core.CoreException;
 import com.mendix.externalinterface.connector.RequestHandler;
@@ -22,7 +18,10 @@ import com.mendix.m2ee.api.IMxRuntimeRequest;
 import com.mendix.m2ee.api.IMxRuntimeResponse;
 import com.mendix.systemwideinterfaces.core.IContext;
 
-import coco_objecthandling.XPath;
+import objecthandling.XPath;
+import unittesting.proxies.TestSuite;
+import unittesting.proxies.UnitTest;
+import unittesting.proxies.UnitTestResult;
 
 public class RemoteApiServlet extends RequestHandler {
 

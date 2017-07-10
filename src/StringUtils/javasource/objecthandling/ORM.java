@@ -1,4 +1,4 @@
-package coco_objecthandling;
+package objecthandling;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -11,8 +11,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-
-import org.apache.commons.lang3.StringUtils;
 
 import com.mendix.core.Core;
 import com.mendix.core.CoreException;
@@ -394,6 +392,20 @@ public class ORM
 
 		return Core.retrieveId(context, itemId); 
 	}
+
+//	public static boolean encryptMemberIfChanged(IContext context, IMendixObject item,
+//			String member, String key) throws Exception
+//	{
+//		if (memberHasChanged(context, item, member)) {
+//			
+//			if (item.getMetaObject().getMetaPrimitive(member).getType() != PrimitiveType.String)
+//				throw new IllegalArgumentException("The member '" + member + "' is not a string attribute!");
+//					
+//			item.setValue(context, member, StringUtils.encryptString(key, (String) item.getValue(context, member)));
+//			return true;
+//		}
+//		return false;
+//	}
 
 	public static void commitSilent(IContext c, IMendixObject mendixObject)
 	{

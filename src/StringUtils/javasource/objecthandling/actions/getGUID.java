@@ -12,7 +12,7 @@ package objecthandling.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-import coco_objecthandling.ORM;
+import objecthandling.ORM;
 
 /**
  * returns the Global Unique Identifier (GUID, or id) of an object.

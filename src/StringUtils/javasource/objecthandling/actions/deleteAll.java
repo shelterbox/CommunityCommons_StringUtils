@@ -12,7 +12,7 @@ package objecthandling.actions;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
-import coco_objecthandling.XPath;
+import objecthandling.XPath;
 
 /**
  * Removes ALL instances of a certain domain object type using batches.

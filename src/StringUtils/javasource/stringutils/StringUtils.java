@@ -1,4 +1,4 @@
-package coco_stringutils;
+package stringutils;
 
 import java.io.IOException;
 import java.io.StringReader;
@@ -26,7 +26,7 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import com.google.common.base.Function;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 
-import coco_stringutils.proxies.XSSPolicy;
+import stringutils.proxies.XSSPolicy;
 
 public class StringUtils
 {
