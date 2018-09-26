@@ -2,8 +2,11 @@ package stringutils;
 
 import java.io.IOException;
 import java.io.StringReader;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.DigestException;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Random;
@@ -22,6 +25,7 @@ import javax.swing.text.html.HTMLEditorKit;
 import javax.swing.text.html.parser.ParserDelegator;
 
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import com.google.common.base.Function;
@@ -140,6 +144,10 @@ public class StringUtils
 		return StringEscapeUtils.escapeHtml4(value);
 	}
 
+	public static String URLEncode(String value) throws UnsupportedEncodingException {
+		return URLEncoder.encode(value, "UTF-8");
+	}
+	
 	public static String randomHash()
 	{
 		return UUID.randomUUID().toString();
@@ -312,30 +320,39 @@ public class StringUtils
 		return new String(c.doFinal(encryptedData));
 	}
 
+	
+	private static byte[] generateHmacSha256ByteArray(String key, String value) throws InvalidKeyException, NoSuchAlgorithmException {
+		
+		Mac sha256_HMAC = Mac.getInstance("HmacSHA256");
+		SecretKeySpec secret_key = new SecretKeySpec(key.getBytes(), "HmacSHA256");
+		sha256_HMAC.init(secret_key);
+
+		byte[] rawHmac = (sha256_HMAC.doFinal(value.getBytes()));
+		
+		return rawHmac; 
+	}
+	
+	
 	public static String generateHmacSha256Hash(String key, String valueToEncrypt)
 	{
 		try {
-			SecretKeySpec secretKey = new SecretKeySpec(key.getBytes("UTF-8"), "HmacSHA256");
-			Mac mac = Mac.getInstance("HmacSHA256");
-			mac.init(secretKey);
-			mac.update(valueToEncrypt.getBytes("UTF-8"));
-			byte[] hmacData = mac.doFinal();
-
-            return new String(Base64.encodeBase64(hmacData));
+            return new String(Base64.encodeBase64(generateHmacSha256ByteArray(key,valueToEncrypt)));
 		}
 		catch (Exception e) {
-			throw new RuntimeException("CommunityCommons::EncodeHmacSha256::Unable to encode: " + e.getMessage(), e);
+			throw new RuntimeException("StringUtils::EncodeHmacSha256::Unable to encode: " + e.getMessage(), e);
 		}
 	}
 	
-//	public static String escapeHTML(String input) {
-//		return input.replace("\"", "&quot;")
-//					.replace("&", "&amp;")
-//					.replace("<", "&lt;")
-//					.replace(">", "&gt;")
-//					.replace("'", "&#39;");// notice this one: for xml "&#39;" would be "&apos;" (http://blogs.msdn.com/b/kirillosenkov/archive/2010/03/19/apos-is-in-xml-in-html-use-39.aspx)
-//		// OWASP also advises to escape "/" but give no convincing reason why: https://www.owasp.org/index.php/XSS_%28Cross_Site_Scripting%29_Prevention_Cheat_Sheet
-//	}
+	public static String generateHmacSha256HexDigest(String key, String valueToEncrypt)
+	{
+		try {
+            return Hex.encodeHexString(generateHmacSha256ByteArray(key,valueToEncrypt));
+		}
+		catch (Exception e) {
+			throw new RuntimeException("StringUtils::EncodeHmacSha256::Unable to encode: " + e.getMessage(), e);
+		}
+	}
+	
 
 	public static String regexQuote(String unquotedLiteral) {
 		return Pattern.quote(unquotedLiteral);

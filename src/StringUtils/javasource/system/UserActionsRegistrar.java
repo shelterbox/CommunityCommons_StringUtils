@@ -64,6 +64,7 @@ public class UserActionsRegistrar implements EventHandler
 			component.actionRegistry().registerUserAction(stringutils.actions.DecryptString.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.EncryptString.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.GenerateHMAC_SHA256_hash.class);
+			component.actionRegistry().registerUserAction(stringutils.actions.GenerateHMAC_SHA256_HexDigest.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.Hash.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.HTMLEncode.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.HTMLToPlainText.class);
@@ -77,6 +78,7 @@ public class UserActionsRegistrar implements EventHandler
 			component.actionRegistry().registerUserAction(stringutils.actions.StringLength.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.StringRightPad.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.StringTrim.class);
+			component.actionRegistry().registerUserAction(stringutils.actions.URLEncode.class);
 			component.actionRegistry().registerUserAction(stringutils.actions.XSSSanitize.class);
 			component.actionRegistry().registerUserAction(system.actions.VerifyPassword.class);
 			component.actionRegistry().registerUserAction(unittesting.actions.FindAllUnitTests.class);

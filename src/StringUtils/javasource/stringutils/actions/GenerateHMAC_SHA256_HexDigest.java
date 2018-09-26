@@ -14,32 +14,25 @@ import com.mendix.webui.CustomJavaAction;
 import stringutils.StringUtils;
 
 /**
- * Performs a regular expression. Identical to the microflow expression function 'replaceAll'. Useful to be used from java, or in older Mendix versions. 
- * For the regexp specification see:
- * http://download.oracle.com/javase/1.4.2/docs/api/java/util/regex/Pattern.html
- * 
- * A decent regexp tester can be found at:
- * http://www.fileformat.info/tool/regex.htm
+ * Creates a HMAC SHA 256 byte array and converts it into a String representing the hexadecimal values of each byte in order.
  */
-public class RegexReplaceAll extends CustomJavaAction<String>
+public class GenerateHMAC_SHA256_HexDigest extends CustomJavaAction<String>
 {
-	private String haystack;
-	private String needleRegex;
-	private String replacement;
+	private String key;
+	private String value;
 
-	public RegexReplaceAll(IContext context, String haystack, String needleRegex, String replacement)
+	public GenerateHMAC_SHA256_HexDigest(IContext context, String key, String value)
 	{
 		super(context);
-		this.haystack = haystack;
-		this.needleRegex = needleRegex;
-		this.replacement = replacement;
+		this.key = key;
+		this.value = value;
 	}
 
 	@Override
 	public String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		return StringUtils.regexReplaceAll(haystack, needleRegex, replacement);
+		return StringUtils.generateHmacSha256HexDigest(key, value);
 		// END USER CODE
 	}
 
@@ -49,7 +42,7 @@ public class RegexReplaceAll extends CustomJavaAction<String>
 	@Override
 	public String toString()
 	{
-		return "RegexReplaceAll";
+		return "GenerateHMAC_SHA256_HexDigest";
 	}
 
 	// BEGIN EXTRA CODE

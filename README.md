@@ -29,6 +29,7 @@ Available microflow activities to use in your microflows
 - String - Right pad
 - String - Length
 - String - Remove whitespace (Trim)
+- URLEncode - Translates a string into 'application/x-www-form-urlencoded' format.
 
 # Business rules
 - IsEmptyString

@@ -11,35 +11,24 @@ package stringutils.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
+
 import stringutils.StringUtils;
 
-/**
- * Performs a regular expression. Identical to the microflow expression function 'replaceAll'. Useful to be used from java, or in older Mendix versions. 
- * For the regexp specification see:
- * http://download.oracle.com/javase/1.4.2/docs/api/java/util/regex/Pattern.html
- * 
- * A decent regexp tester can be found at:
- * http://www.fileformat.info/tool/regex.htm
- */
-public class RegexReplaceAll extends CustomJavaAction<String>
+public class URLEncode extends CustomJavaAction<String>
 {
-	private String haystack;
-	private String needleRegex;
-	private String replacement;
+	private String valueToEncode;
 
-	public RegexReplaceAll(IContext context, String haystack, String needleRegex, String replacement)
+	public URLEncode(IContext context, String valueToEncode)
 	{
 		super(context);
-		this.haystack = haystack;
-		this.needleRegex = needleRegex;
-		this.replacement = replacement;
+		this.valueToEncode = valueToEncode;
 	}
 
 	@Override
 	public String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		return StringUtils.regexReplaceAll(haystack, needleRegex, replacement);
+		return StringUtils.URLEncode(valueToEncode);
 		// END USER CODE
 	}
 
@@ -49,7 +38,7 @@ public class RegexReplaceAll extends CustomJavaAction<String>
 	@Override
 	public String toString()
 	{
-		return "RegexReplaceAll";
+		return "URLEncode";
 	}
 
 	// BEGIN EXTRA CODE
