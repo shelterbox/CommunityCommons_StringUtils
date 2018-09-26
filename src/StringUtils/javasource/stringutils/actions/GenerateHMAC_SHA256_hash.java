@@ -11,11 +11,10 @@ package stringutils.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
-
 import stringutils.StringUtils;
 
 /**
- * Generates and asymmetric hash using the HMAC_SHA256 hash algorithm
+ * Creates a HMAC SHA 256 byte array which is Base64 encoded. The result is returned as a String.
  */
 public class GenerateHMAC_SHA256_hash extends CustomJavaAction<String>
 {
